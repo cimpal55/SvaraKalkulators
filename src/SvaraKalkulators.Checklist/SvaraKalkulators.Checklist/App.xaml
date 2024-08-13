@@ -1,0 +1,9 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Application xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="SvaraKalkulators.Checklist.App"
+             xmlns:converter="clr-namespace:SvaraKalkulators.Checklist.Converters">
+    <Application.Resources>
+        <converter:EnumToStringConverter x:Key="EnumToStringConverter"/>
+    </Application.Resources>
+</Application>

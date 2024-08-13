@@ -1,0 +1,33 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+    <PropertyGroup>
+        <TargetFramework>netstandard2.1</TargetFramework>
+    </PropertyGroup>
+
+    <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|AnyCPU'">
+        <DebugType>pdbonly</DebugType>
+        <DebugSymbols>true</DebugSymbols>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="Acr.UserDialogs" Version="7.2.0.564" />
+        <PackageReference Include="Autofac" Version="8.0.0" />
+        <PackageReference Include="JetBrains.Annotations" Version="2024.2.0" />
+        <PackageReference Include="Xamarin.Forms" Version="4.8.0.1821" />
+        <PackageReference Include="Xamarin.KeyboardHelper" Version="3.0.1" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Folder Include="Models\" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <ProjectReference Include="..\..\_core\SvaraKalkulators.Core.Data\SvaraKalkulators.Core.Data.csproj" />
+    </ItemGroup>
+
+    <ItemGroup>
+      <Compile Update="Views\MainView.xaml.cs">
+        <DependentUpon>MainView.xaml</DependentUpon>
+      </Compile>
+    </ItemGroup>
+</Project>
