@@ -108,27 +108,31 @@ namespace SvaraKalkulators.Checklist.ViewModels
         {
             try
             {
-                if (Input.Length == 12)
+                if (Input.Length == 13)
                 {
-                    if (!(InputFirstChars == "23" || InputFirstChars == "24" || InputFirstChars == "25"))
+                    if (!(InputFirstChars == "22" 
+                        || InputFirstChars == "23" 
+                        || InputFirstChars == "27"
+                        || InputFirstChars == "29"))
                     {
-                        UserDialogs.Instance.Alert("Barcode should begin from 23, 24 or 25.");
+                        UserDialogs.Instance.Alert("Barcode should begin from 22, 23, 27 or 29.");
                         Input = "";
                         return;
                     }
 
-                    Weight = float.Parse(Input.Substring(8));
+                    Input = Input.Substring(0, Input.Length - 1);
 
                     switch (InputFirstChars)
                     {
-                        case "23":
+                        case "22":
+                        case "27":
+                        case "29": 
+                            Weight = float.Parse(Input.Substring(8));
                             _numbersToDegree = 1000;
                             break;
-                        case "24":
+                        case "23":
+                            Weight = float.Parse(Input.Substring(9));
                             _numbersToDegree = 100;
-                            break;
-                        case "25":
-                            _numbersToDegree = 10;
                             break;
                     }
 
@@ -146,7 +150,7 @@ namespace SvaraKalkulators.Checklist.ViewModels
                 }
                 else
                 {
-                    UserDialogs.Instance.Alert("Barcode should contain 12 numbers.");
+                    UserDialogs.Instance.Alert("Barcode should contain 13 numbers.");
                     Input = "";
                     return;
                 }
