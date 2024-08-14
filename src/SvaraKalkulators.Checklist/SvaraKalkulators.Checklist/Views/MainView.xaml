@@ -98,7 +98,6 @@
                        HorizontalTextAlignment="Center"
                        VerticalTextAlignment="End"
                        Unfocused="Label_Focused"
-                       MaxLength="12"
                        effects:KeyboardEffect.EnableKeyboard="{Binding IsKeyboardEnabled}"
                        Text="{Binding Input}"
                        ReturnType="Next"

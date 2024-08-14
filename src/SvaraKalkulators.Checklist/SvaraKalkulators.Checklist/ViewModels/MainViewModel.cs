@@ -108,7 +108,7 @@ namespace SvaraKalkulators.Checklist.ViewModels
         {
             try
             {
-                if (Input.Length == 13)
+                if (Input.Length == 12)
                 {
                     if (!(InputFirstChars == "22" 
                         || InputFirstChars == "23" 
@@ -120,18 +120,21 @@ namespace SvaraKalkulators.Checklist.ViewModels
                         return;
                     }
 
-                    Input = Input.Substring(0, Input.Length - 1);
+                    //Input = Input.Substring(0, Input.Length - 1);
+
+                    var test = Input.Substring(7);
+                    var test2 = Input.Substring(8);
 
                     switch (InputFirstChars)
                     {
                         case "22":
                         case "27":
                         case "29": 
-                            Weight = float.Parse(Input.Substring(8));
+                            Weight = float.Parse(Input.Substring(7));
                             _numbersToDegree = 1000;
                             break;
                         case "23":
-                            Weight = float.Parse(Input.Substring(9));
+                            Weight = float.Parse(Input.Substring(8));
                             _numbersToDegree = 100;
                             break;
                     }
@@ -150,7 +153,7 @@ namespace SvaraKalkulators.Checklist.ViewModels
                 }
                 else
                 {
-                    UserDialogs.Instance.Alert("Barcode should contain 13 numbers.");
+                    UserDialogs.Instance.Alert("Barcode should contain 12 numbers without check digits.");
                     Input = "";
                     return;
                 }
